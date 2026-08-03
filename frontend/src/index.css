@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --bg: #f6f1ea;
+  --surface: #fbf8f4;
+  --border: rgba(72, 51, 42, 0.1);
+  --text: #271b16;
+  --muted: #7b5742;
+  --accent: #6d442e;
+}
+
+html.dark {
+  color-scheme: dark;
+  --bg: #1a1411;
+  --surface: #221c18;
+  --border: rgba(232, 216, 197, 0.1);
+  --text: #f2ebe2;
+  --muted: #c0a48a;
+  --accent: #c5a07a;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Sora, system-ui, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+@layer components {
+  .page-shell {
+    @apply min-h-screen text-roast-950 dark:text-foam-100;
+  }
+
+  .surface {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    @apply rounded-xl;
+  }
+
+  .field-input {
+    @apply rounded-xl border border-roast-200/70 bg-transparent px-3.5 py-2.5 text-sm text-roast-950 outline-none transition placeholder:text-roast-400 focus:border-cocoa-500 dark:border-roast-700 dark:text-foam-50 dark:placeholder:text-roast-400 dark:focus:border-cocoa-300;
+  }
+
+  select.field-input {
+    color-scheme: light;
+  }
+
+  select.field-input option {
+    background-color: #fbf8f4;
+    color: #271b16;
+  }
+
+  html.dark select.field-input {
+    color-scheme: light;
+  }
+
+  html.dark select.field-input option {
+    background-color: #fbf8f4;
+    color: #271b16;
+  }
+}
