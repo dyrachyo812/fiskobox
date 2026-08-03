@@ -171,4 +171,4 @@ fiskobox/
 
 ## License
 
-See repository license file if present; otherwise all rights reserved by the author until a license is added.
+MIT — see [LICENSE](LICENSE).
