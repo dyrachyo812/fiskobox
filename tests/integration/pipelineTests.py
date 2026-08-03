@@ -74,7 +74,10 @@ class TestCeleryPipeline:
         )
         monkeypatch.setattr(
             "worker.tasks.receipt.settings",
-            SimpleNamespace(blur_variance_threshold=1.0),
+            SimpleNamespace(
+                blur_variance_threshold=1.0,
+                blur_warn_variance_threshold=250.0,
+            ),
         )
 
         from worker.tasks.receipt import process_receipt_image
@@ -126,7 +129,10 @@ class TestCeleryPipeline:
         )
         monkeypatch.setattr(
             "worker.tasks.receipt.settings",
-            SimpleNamespace(blur_variance_threshold=500.0),
+            SimpleNamespace(
+                blur_variance_threshold=500.0,
+                blur_warn_variance_threshold=250.0,
+            ),
         )
 
         from worker.tasks.receipt import process_receipt_image

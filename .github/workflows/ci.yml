@@ -41,6 +41,13 @@ jobs:
       TEST_DATABASE_URL: postgresql+asyncpg://paperless_test:paperless_test@127.0.0.1:5433/paperlessbox_test
       TEST_REDIS_URL: redis://127.0.0.1:6380/0
       COVERAGE_FILE: /tmp/fiskobox.coverage
+      DATABASE_URL: postgresql+asyncpg://paperless_test:paperless_test@127.0.0.1:5433/paperlessbox_test
+      REDIS_URL: redis://127.0.0.1:6380/0
+      CELERY_BROKER_URL: redis://127.0.0.1:6380/0
+      CELERY_RESULT_BACKEND: redis://127.0.0.1:6380/1
+      JWT_SECRET: ci-test-secret
+      TELEGRAM_BOT_TOKEN: "000000000:CI-TEST-TOKEN"
+      TELEGRAM_BOT_USERNAME: fiskobox_ci_bot
     steps:
       - name: Checkout
         uses: actions/checkout@v4
