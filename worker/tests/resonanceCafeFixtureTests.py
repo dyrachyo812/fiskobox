@@ -3,7 +3,6 @@ from pathlib import Path
 from types import SimpleNamespace
 
 from worker.pipeline.parsing.categorize import categorize
-from worker.pipeline.parsing.currency import extract_currency
 from worker.pipeline.parsing.hybridMerge import merge_hybrid_results
 from worker.pipeline.parsing.receipt import parse_receipt_regex
 

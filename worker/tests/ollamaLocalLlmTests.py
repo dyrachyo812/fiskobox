@@ -1,10 +1,9 @@
+import urllib.request
 from datetime import date
 from decimal import Decimal
 from pathlib import Path
 
 import pytest
-import urllib.request
-
 from worker.pipeline.parsing.ollamaClient import OllamaClient
 from worker.pipeline.parsing.ollamaParser import OllamaReceiptParser
 

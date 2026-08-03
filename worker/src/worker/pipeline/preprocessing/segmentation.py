@@ -21,7 +21,8 @@ def _cluster_by_column(boxes: list[tuple[int, int, int, int]]) -> int:
     for x, _y, w, _h in sorted(boxes, key=lambda box: box[0]):
         placed = False
         for index, (cluster_x, cluster_w) in enumerate(clusters):
-            if _horizontal_overlap_ratio((x, w), (cluster_x, cluster_w)) >= HORIZONTAL_OVERLAP_RATIO:
+            overlap = _horizontal_overlap_ratio((x, w), (cluster_x, cluster_w))
+            if overlap >= HORIZONTAL_OVERLAP_RATIO:
                 new_x = min(cluster_x, x)
                 new_w = max(cluster_x + cluster_w, x + w) - new_x
                 clusters[index] = (new_x, new_w)

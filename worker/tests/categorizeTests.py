@@ -6,7 +6,10 @@ from worker.pipeline.parsing.categorize import categorize
 def make_categories():
     return [
         SimpleNamespace(name="Продукты", keywords=["атб", "сильпо", "пятерочка", "ашан"]),
-        SimpleNamespace(name="Транспорт", keywords=["uber", "bolt", "укрзализныця", "азс", "таврида"]),
+        SimpleNamespace(
+            name="Транспорт",
+            keywords=["uber", "bolt", "укрзализныця", "азс", "таврида"],
+        ),
         SimpleNamespace(
             name="Кафе",
             keywords=[

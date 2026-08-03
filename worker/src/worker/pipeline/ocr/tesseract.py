@@ -89,7 +89,7 @@ def score_ocr_text(text: str) -> float:
         rf"(карт\w*).{{0,20}}{re.escape(amount_token)}"
         rf"|{re.escape(amount_token)}.{{0,12}}грн",
         compact.lower(),
-        re.S,
+        re.DOTALL,
     ):
         score += 35.0
     return score

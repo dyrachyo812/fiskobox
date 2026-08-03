@@ -36,7 +36,7 @@ class TestSuccessMessageTransparency:
             {
                 "merchant_name": "АТБ",
                 "merchant_confident": True,
-                "amount": Decimal("100"),
+                "amount": Decimal(100),
                 "amount_confident": True,
                 "purchase_date": None,
                 "date_confident": False,

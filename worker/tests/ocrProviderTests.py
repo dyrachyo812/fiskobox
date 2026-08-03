@@ -2,7 +2,6 @@ from types import SimpleNamespace
 
 import numpy as np
 import pytest
-
 from worker.pipeline.ocr.fallback import FallbackOCRProvider
 from worker.pipeline.ocr.googleVision import GoogleVisionError, GoogleVisionOCR
 from worker.pipeline.ocr.googleVisionQuota import (
@@ -145,17 +144,21 @@ class TestGoogleVisionOCRMocked:
                 self.confidence = confidence
 
         class FakeParagraph:
-            words = [FakeWord("ИТОГО", 0.9), FakeWord("100.00", 0.8)]
+            def __init__(self) -> None:
+                self.words = [FakeWord("ИТОГО", 0.9), FakeWord("100.00", 0.8)]
 
         class FakeBlock:
-            paragraphs = [FakeParagraph()]
+            def __init__(self) -> None:
+                self.paragraphs = [FakeParagraph()]
 
         class FakePage:
-            blocks = [FakeBlock()]
+            def __init__(self) -> None:
+                self.blocks = [FakeBlock()]
 
         class FakeAnnotation:
-            text = "ИТОГО 100.00"
-            pages = [FakePage()]
+            def __init__(self) -> None:
+                self.text = "ИТОГО 100.00"
+                self.pages = [FakePage()]
 
         class FakeResponse:
             error = SimpleNamespace(message="")

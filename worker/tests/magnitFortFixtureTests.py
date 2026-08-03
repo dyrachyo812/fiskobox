@@ -2,7 +2,7 @@ from datetime import date
 from decimal import Decimal
 from pathlib import Path
 
-from worker.pipeline.parsing.amount import extract_amount, extract_amount_with_source
+from worker.pipeline.parsing.amount import extract_amount_with_source
 from worker.pipeline.parsing.date import extract_date
 from worker.pipeline.parsing.hybridMerge import merge_hybrid_results
 from worker.pipeline.parsing.merchant import extract_merchant

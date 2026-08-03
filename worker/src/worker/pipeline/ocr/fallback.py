@@ -1,5 +1,4 @@
 import numpy as np
-
 from shared.logging import get_logger
 
 from worker.pipeline.ocr.provider import OCRProvider

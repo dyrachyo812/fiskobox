@@ -94,7 +94,7 @@ def extract_tender_and_change(text: str) -> tuple[Decimal | None, Decimal | None
 
 
 def is_round_cash(value: Decimal) -> bool:
-    return value >= Decimal("100") and value == value.to_integral_value()
+    return value >= Decimal(100) and value == value.to_integral_value()
 
 
 def extract_multiply_products(text: str) -> list[Decimal]:

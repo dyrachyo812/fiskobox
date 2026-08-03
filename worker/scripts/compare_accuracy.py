@@ -8,7 +8,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 sys.path[:0] = [str(ROOT / "worker" / "src"), str(ROOT / "shared" / "src")]
 
-from worker.pipeline.parsing.receipt import (
+from worker.pipeline.parsing.receipt import (  # noqa: E402
     parse_receipt_hybrid,
     parse_receipt_llm,
     parse_receipt_regex,
@@ -160,7 +160,7 @@ def main() -> int:
             f"{avg:>8.2f}s"
         )
 
-    if "llm" in timings and timings["llm"]:
+    if timings.get("llm"):
         max_llm = max(timings["llm"])
         avg_llm = sum(timings["llm"]) / len(timings["llm"])
         print()

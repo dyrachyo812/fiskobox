@@ -1,9 +1,7 @@
 from datetime import date
 from decimal import Decimal
-from types import SimpleNamespace
 
 import pytest
-
 from worker.pipeline.parsing.ollamaClient import OllamaError
 from worker.pipeline.parsing.ollamaJson import OllamaJsonError, extract_json_object
 from worker.pipeline.parsing.ollamaParser import OllamaReceiptParser

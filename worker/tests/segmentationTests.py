@@ -1,10 +1,9 @@
 import cv2
 import numpy as np
-
-from worker.pipeline.preprocessing.segmentation import count_receipts
 from worker.pipeline.parsing.amount import extract_amount
 from worker.pipeline.parsing.date import extract_date
 from worker.pipeline.parsing.merchant import extract_merchant
+from worker.pipeline.preprocessing.segmentation import count_receipts
 
 
 def _stacked_receipt_like_autocafe() -> np.ndarray:

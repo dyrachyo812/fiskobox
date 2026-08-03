@@ -1,15 +1,16 @@
 import os
-from concurrent.futures import ThreadPoolExecutor, TimeoutError as FuturesTimeout
+from concurrent.futures import ThreadPoolExecutor
+from concurrent.futures import TimeoutError as FuturesTimeout
 
 import numpy as np
 
-from worker.pipeline.ocr.imageBytes import image_to_png_bytes
-from worker.pipeline.ocr.provider import OCRProvider
-from worker.pipeline.ocr.result import OCRResult, WordConfidence
 from worker.pipeline.ocr.googleVisionQuota import (
     GoogleVisionQuota,
     GoogleVisionQuotaError,
 )
+from worker.pipeline.ocr.imageBytes import image_to_png_bytes
+from worker.pipeline.ocr.provider import OCRProvider
+from worker.pipeline.ocr.result import OCRResult, WordConfidence
 
 
 class GoogleVisionError(Exception):

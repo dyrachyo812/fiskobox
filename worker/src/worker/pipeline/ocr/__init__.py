@@ -6,6 +6,6 @@ __all__ = [
     "OCRProvider",
     "OCRResult",
     "WordConfidence",
-    "build_ocr_provider",
     "build_ocr_engine",
+    "build_ocr_provider",
 ]

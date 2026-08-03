@@ -1,9 +1,9 @@
+from shared.models import Document
+from sqlalchemy import select
 from worker.db.session import session_scope
 from worker.pipeline.parsing import parse_receipt
 from worker.repositories.categoryrepository import load_categories
 from worker.repositories.documentrepository import fetch_document, save_result
-from shared.models import Document
-from sqlalchemy import select
 
 
 def main() -> None:
