@@ -1,0 +1,18 @@
+# DOMAIN приходит из окружения (см. docker-compose.prod.yml).
+# Для реального домена Caddy сам выпустит и продлит TLS-сертификат Let's Encrypt.
+# Для демо без домена можно выставить DOMAIN=:80 — тогда отдаётся по HTTP.
+
+{$DOMAIN} {
+    encode gzip
+
+    # Всё, что относится к API и служебным ручкам бэкенда, уходит на backend-api.
+    @backend path /api/* /health /docs /openapi.json
+    handle @backend {
+        reverse_proxy backend-api:8000
+    }
+
+    # Остальное — статика SPA, которую отдаёт nginx фронтенда.
+    handle {
+        reverse_proxy frontend:80
+    }
+}
