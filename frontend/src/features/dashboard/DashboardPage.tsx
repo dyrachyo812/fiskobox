@@ -9,7 +9,7 @@ import { useDocuments } from "@/hooks/useDocuments";
 import { useSummary } from "@/hooks/useSummary";
 
 export function DashboardPage() {
-  const { data: summary, loading } = useSummary("month");
+  const { data: summary, loading } = useSummary("all");
   const { data: documents, reload } = useDocuments({ limit: 5, offset: 0 });
   const [editId, setEditId] = useState<number | null>(null);
 

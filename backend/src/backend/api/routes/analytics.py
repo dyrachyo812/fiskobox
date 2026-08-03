@@ -15,7 +15,7 @@ router = APIRouter()
 
 @router.get("/summary", response_model=SummaryOut)
 async def summary(
-    period: str = Query("month", pattern="^(week|month|year)$"),
+    period: str = Query("all", pattern="^(week|month|year|all)$"),
     user: User = Depends(get_current_user),
     session: AsyncSession = Depends(get_session),
 ) -> SummaryOut:

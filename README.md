@@ -24,7 +24,7 @@ One-time code from Telegram (`/link`) — no passwords.
 
 ### Overview
 
-Monthly total, top category, receipt count, category breakdown, and recent receipts.
+Total, top category, receipt count, category breakdown, and recent receipts.
 
 ![fiskobox overview](docs/dashboard.png)
 
@@ -33,6 +33,12 @@ Monthly total, top category, receipt count, category breakdown, and recent recei
 Filter by status, category, and date range. Edit or delete recognized fields when needed.
 
 ![fiskobox receipts](docs/documents.png)
+
+### Edit receipt
+
+Review the scan and correct merchant, category, amount, currency, or date.
+
+![fiskobox edit receipt](docs/edit.png)
 
 ---
 
