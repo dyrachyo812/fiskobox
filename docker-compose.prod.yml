@@ -1,0 +1,47 @@
+# Продакшн-оверлей к базовому docker-compose.yml.
+# Запуск:
+#   docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d --build
+#
+# Что делает оверлей:
+#   * убирает публикацию портов postgres/redis/backend наружу (доступ только внутри сети compose);
+#   * ставит перед всем Caddy с автоматическим HTTPS (Let's Encrypt) и маршрутизацией / -> frontend, /api -> backend;
+#   * фронтенд собирается с относительным API-путём /api, чтобы не хардкодить домен и не ловить CORS.
+#
+# Требуется Docker Compose >= 2.24 (используется тег !reset).
+
+services:
+  postgres:
+    ports: !reset null
+
+  redis:
+    ports: !reset null
+
+  backend-api:
+    ports: !reset null
+
+  frontend:
+    ports: !reset null
+    build:
+      args:
+        VITE_API_BASE_URL: /api
+        VITE_TELEGRAM_BOT_USERNAME: ${TELEGRAM_BOT_USERNAME}
+
+  caddy:
+    image: caddy:2-alpine
+    restart: unless-stopped
+    depends_on:
+      - frontend
+      - backend-api
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      DOMAIN: ${DOMAIN}
+    volumes:
+      - ./deploy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy-data:/data
+      - caddy-config:/config
+
+volumes:
+  caddy-data:
+  caddy-config:
